@@ -10,13 +10,13 @@ Images are published to GitHub Container Registry as `ghcr.io/think-cube/bash`.
 
 | Tag | Meaning | Changes? |
 |---|---|---|
-| `1.0.0` | Exact release | Never |
+| `1.0.1` | Exact release | Never |
 | `1.0`, `1`, `latest` | Newest matching release | With each release |
 | `edge` | Newest build of `main` | With each merge and weekly rebuild |
 | `edge-YYYYMMDD` | Weekly rebuild of `main` with current OS patches | Never |
 | `sha-<commit>` | Build of one `main` commit | Never |
 
-For production, pin by digest: `ghcr.io/think-cube/bash:1.0.0@sha256:...`.
+For production, pin by digest: `ghcr.io/think-cube/bash:1.0.1@sha256:...`.
 
 ## Usage
 
@@ -51,7 +51,7 @@ The image runs as `app` (UID/GID `10001`) in `/work`. If a script writes into a 
 Check the signature:
 
 ```bash
-cosign verify ghcr.io/think-cube/bash:1.0.0 \
+cosign verify ghcr.io/think-cube/bash:1.0.1 \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
   --certificate-identity-regexp '^https://github\.com/Think-Cube/workflows/\.github/workflows/container-image\.yml@refs/tags/v.+$'
 ```
@@ -59,8 +59,8 @@ cosign verify ghcr.io/think-cube/bash:1.0.0 \
 Read the SBOM and provenance:
 
 ```bash
-docker buildx imagetools inspect ghcr.io/think-cube/bash:1.0.0 --format '{{ json .SBOM }}'
-docker buildx imagetools inspect ghcr.io/think-cube/bash:1.0.0 --format '{{ json .Provenance }}'
+docker buildx imagetools inspect ghcr.io/think-cube/bash:1.0.1 --format '{{ json .SBOM }}'
+docker buildx imagetools inspect ghcr.io/think-cube/bash:1.0.1 --format '{{ json .Provenance }}'
 ```
 
 ## Build and test locally
