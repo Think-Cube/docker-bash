@@ -1,0 +1,5 @@
+ignored:
+  # Packages come from a digest-pinned base and are refreshed by the weekly rebuild,
+  # so neither the apk upgrade nor unpinned apk versions are accidental.
+  - DL3017
+  - DL3018
